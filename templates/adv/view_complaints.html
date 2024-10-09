@@ -1,0 +1,61 @@
+{% extends 'adv/adv_base.html' %}
+{% load static %}
+{% block content %}
+  <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'img/bg-img/breadcumb3.jpg' %});">
+        <div class="bradcumbContent">
+            <p></p>
+            <h2></h2>
+        </div>
+    </section>
+<br>
+ 
+
+ <div class="container add-emp">
+			<center><h1 style="color:black;"><strong>View Complaints</strong></h1><br></center>
+			<table class="table table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th class="p-3 mb-2 bg-primary text-light">User  </th>
+						<th class="p-3 mb-2 bg-primary text-light">Complaint</th>
+                        <!-- <th class="p-3 mb-2 bg-primary text-light">Status</th> -->
+                        <th class="p-3 mb-2 bg-primary text-light">Action</th>
+
+<!--						&lt;!&ndash; <th class="p-3 mb-2 bg-primary text-light">Update</th>-->
+<!--						<th class="p-3 mb-2 bg-primary text-light">Delete</th> &ndash;&gt;-->
+					{% for i in com  %}
+                    </tr>
+
+							<td>{{ i.user.user.first_name }}</td>
+                    		<td>{{ i.complaint }}</td>
+                            <!-- <td>{{i.status}}</td> -->
+                            <td><button style="background-color:limegreen"><a href="Accept?id={{ i.id}}&reply?id={{i.id}}" class=" btn btn-success" >Accept</a></button>
+                            <button style="background-color:rgb(33, 7, 228)"><a href="Reject?id={{ i.id}}" class=" btn btn-success" >Reject</a></button></td>
+
+
+
+              <!-- <td><a class="btn btn-primary py-2 px-3" href="update_btn.php?id=<?php echo $data['id']; ?>">Update</a> </td>
+              <td><a class="btn btn-primary py-2 px-3" href="delete_btn.php?id=<?php echo $data['id']; ?>">Delete</a> </td> -->
+						</tr>
+                {% endfor %}
+
+		    </table>
+		</div>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

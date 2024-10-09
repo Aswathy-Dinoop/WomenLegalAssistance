@@ -1,0 +1,38 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+
+        <!-- slider Area Start-->
+        <div class="slider-area ">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center" data-background="{% static 'assets/img/hero/user.jpg' %}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9 col-md-9">
+                                <div class="hero__caption">
+                                    <!-- <p data-animation="fadeInUp" data-delay=".6s">Professional lawyers</p> -->
+                                    <h1 data-animation="fadeInUp" data-delay=".4s" style="color: white;" >Welcome {{request.user.first_name}}<br>
+                                        </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-bottom"  >
+                        <div class="slider-bottom-cap" data-animation="fadeInLeft" data-delay=".6s">
+                            <!-- <p>Schedule a Free Consultation 24/7</p> -->
+                            <!-- <span>01654.066.456</span> -->
+                        </div>
+                        <div class="slider-video d-flex align-items-center" data-animation="fadeInRight" data-delay=".8s">
+                            <!-- <a class="popup-video ani-btn" href="https://www.youtube.com/watch?v=1aP-TXUpNoU">
+                            <img src="{% static 'assets/img/icon/video_btn.png' %}" alt="">
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Slider -->
+               
+
+    </main>
+   {% endblock %}

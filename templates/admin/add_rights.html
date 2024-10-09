@@ -1,0 +1,50 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<div class="container-fluid bg-primary bg-quote py-5" style="margin: 90px 0;">
+    <div class="container py-5">
+        <div class="row g-0 justify-content-start">
+            <div class="col-lg-6">
+                <div class="bg-white text-center p-5">
+                    <h1 class="mb-4">Add Peoples Rights</h1>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-12">
+                                <input type="text" id="rights" name="rights" class="form-control bg-light border-0" placeholder="Add Rights Here" style="height: 55px;">
+                                <br>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                                <input type="text" id="desc" name="desc" class="form-control bg-light border-0" placeholder="Description" style="height: 55px;">
+                                <br>
+                            </div>
+                           
+                            <div class="col-12 col-sm-12">
+                                <input type="file" id="image" name="image" class="form-control bg-light border-0" placeholder=" " style="height: 55px;">
+                                <br>
+                            </div>
+                            
+                            
+                            <!-- <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-light border-0 py-3" rows="2" placeholder="Message"></textarea>
+                            </div> -->
+                            <div class="col-12">
+                                <button class="btn btn-warning w-100 py-4" type="submit">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

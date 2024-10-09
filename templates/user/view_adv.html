@@ -1,0 +1,66 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<!-- Legal Practice Area start -->
+<div class="legal-practice-area section-padding30">
+    <div class="container">
+          <!--Section Tittle  -->
+        <div class="row ">
+            <div class="col-xl-12">
+                <div class="section-tittle text-center mb-70">
+                    <h2>Our Legal Advisors</h2>
+                    <div class="search-container">
+                        <form action="" method="post">
+                          {% csrf_token %}
+                          <input style="width: 500px;" type="text" name="search" placeholder="Search Lawyers" name="search">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                            </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- single items -->
+        <div class="row">
+            {% for i in lawyer %}
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                
+                <div class="single-practice mb-30">
+                    <div class="practice-img">
+                        <img src="{{i.image.url}}" alt="">
+
+                        <!-- "practice-icon-->
+                        <div class="practice-icon">
+                            <i class="flaticon-care"></i>
+                        </div>
+                    </div>
+                    <div class="practice-caption">
+                        <h4><a href="">Name :{{i.name}}</a></h4>
+                        <h5><a href="">Experience: {{i.exp}} years</a></h5>
+                        <h5><a href="">Email : {{i.email}} </a></h5>
+                        <h5><a href="">Contact: {{i.phone}}</a></h5>
+                        <h5><a href="">Qualification: {{i.qualification}} </a></h5>
+                        <h5><a href="">Location: {{i.location}} </a></h5>
+                        <a href="petition_form?id={{i.id}}" class="btn red-btn">Click here<i class="ti-angle-double-right"></i></a>
+                        <!-- <p>Lorem ipsum dolor sit amet, ectetur adipiscing elit, sed do eiusmod tem incididunt ut labore et dolore.</p> -->
+                    </div>
+                </div>
+               
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
+
+</div>
+<!-- Legal Practice Area End-->
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+  <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({% static 'img/bg-img/breadcumb3.jpg' %});">
+        <div class="bradcumbContent">
+            <p></p>
+            <h2></h2>
+        </div>
+    </section>
+
+
+ <div class="container add-emp">
+			<center><h1 style="color:black;"><strong>View Complaint Status</strong></h1><br></center>
+			<table class="table table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th class="p-3 mb-2 bg-primary text-light">My Complaint</th>
+                        <th class="p-3 mb-2 bg-primary text-light">Date of Submission</th>
+						<th class="p-3 mb-2 bg-primary text-light">Lawyer Info</th>
+                        <th class="p-3 mb-2 bg-primary text-light">Status</th>
+                        <th class="p-3 mb-2 bg-primary text-light">Reply</th>
+
+
+
+                        						<!-- <th class="p-3 mb-2 bg-primary text-light">Assign Employee</th> -->
+
+<!--						&lt;!&ndash; <th class="p-3 mb-2 bg-primary text-light">Update</th>-->
+<!--						<th class="p-3 mb-2 bg-primary text-light">Delete</th> &ndash;&gt;-->
+					{% for i in compl  %}
+                    </tr>
+
+							<td>{{ i.complaint }}</td>
+                            <td>{{i.date}}</td>
+                    		<td>{{ i.lawyer.name}},<br>Contact Num : {{ i.lawyer.phone}},
+                                <br> Location : {{ i.lawyer.location}},
+                                <br>Experience : {{ i.lawyer.exp}} Years</td>
+                                <td>{{ i.status }}</td>
+                            {% if i.status == 'replied' %} 
+                            <td>{{i.reply}}</td>
+
+								<!-- <td>
+                                <a style="margin-left: 10px;" href="payment?id={{i.id}}"><button class="btn-success">Payment</button></a>
+								<p>NB: to View the solutions, first pay the fees</p>
+							</td> -->
+                            {% else %}
+                                <!-- <td><img style="height: 70px; width: 80px;" src="/media/{{i.image}}"></td>    -->
+								<!-- <td>{{i.reply}}</td> -->
+                            <!-- <td><button style="background-color:limegreen"><a href="Assign_employee?id={{ i.id}}" class=" btn btn-success" >Assign Employee</a></button></td> -->
+                            {% endif %}
+
+              <!-- <td><a class="btn btn-primary py-2 px-3" href="update_btn.php?id=<?php echo $data['id']; ?>">Update</a> </td>
+              <td><a class="btn btn-primary py-2 px-3" href="delete_btn.php?id=<?php echo $data['id']; ?>">Delete</a> </td> -->
+						</tr>
+                        {% endfor %}
+
+		    </table>
+		</div>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

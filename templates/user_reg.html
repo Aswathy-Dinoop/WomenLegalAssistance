@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<section class="contact-section">
+    <div class="container">
+        
+
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Register Here</h2>
+            </div>
+            <div class="col-lg-8">
+                <form class="form-contact contact_form" action="" method="post" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <!-- <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                            </div>
+                        </div> -->
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" autocomplete="off" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required placeholder="Enter your name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" required placeholder="Enter your Email">
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="phone" id="phone" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contact Number'" pattern="[6-9]{1}[0-9]{9}" title="Enter 10 digit number"required placeholder="Enter Your Contact Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="location" id="location" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location'" placeholder="Enter Location" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control valid" name="password" id="password" type="password" onfocus="this.placeholder = 'Enter Password'" onblur="this.placeholder = 'Password'" pattern = "[0-9]).{1,}[a-z]).{1,}[A-Z]).{8,}" title="Eight or more characters" required placeholder="Enter Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="button button-contactForm boxed-btn">Register Here</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</section>
+{% endblock %}

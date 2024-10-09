@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends 'adv/adv_base.html' %}
+{% load static %}
+{% block content %}
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advocate Profile</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #ba5757; */
+    background-image: url("{% static 'assets/img/profile.jpg' %}");
+
+  }
+  
+  .profile-card {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-details {
+    text-align: center;
+  }
+  
+  .profile-details h2 {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .profile-details p {
+    margin: 5px 0;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+  
+
+<div class="profile-card">
+  <div class="profile-pic">
+    <img src="/media/{{profile.image}}" alt="Profile Picture">
+  </div>
+  <div class="profile-details">
+    <h2>{{profile.name}}</h2>
+    <p>Specialization : {{profile.lawyertype}}</p>
+    <p>Experience : {{profile.exp}} Years</p>
+    <p>Enrolment Number: {{profile.regnum}}</p>
+    <p>Education : {{profile.qualification}}</p>
+    <p>Email : {{profile.email}}</p>
+    <p>Phone : {{profile.phone}}</p>
+    <p>Address : {{profile.location}}</p>
+    <br>
+    <div>
+      <a href="update_profile?id={{profile.id}}"><button class="btn-success">Update Profile</button></a>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

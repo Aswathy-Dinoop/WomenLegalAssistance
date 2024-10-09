@@ -1,0 +1,55 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<main>
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <!-- Mobile Menu -->
+        <div class="single-slider slider-height2 d-flex align-items-center" data-background="{% static 'assets/img/hero/law_hero2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>Need a Lawyer????</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+
+    <!-- Services Details Start -->
+    <div class="services-details section-padding2">
+        <div class="container">
+            <div class="row">
+                <div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7">
+                    <div class="s-detailsImg">
+                        <img style="float: right;" src="{{view.image.url}}" alt="">
+                    </div>
+                </div>
+                <div class="offset-xl-1 offset-lg-1 col-xl-7 col-lg-7">
+                    <div class="s-details-caption">
+                        <h2>{{view.rights}}</h2>
+                        <p class="details-pera1">{{view.desc}}</p>
+                        <!-- <p class="details-pera2">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
+                        <p class="details-pera3">
+                            <!-- Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam</p> -->
+                           If you want our help to connect with a lawyer,Please fill up this form</p>
+                        <!-- btn -->
+                        <a href="view_lawyers?id={{view.id}}" class="btn red-btn">Click Here for View Lawyers<i class="ti-angle-double-right"></i></a>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </main>
+{% endblock %}

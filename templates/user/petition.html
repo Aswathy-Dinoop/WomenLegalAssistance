@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% extends 'user/user_base1.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+        }
+        
+        .form-group select {
+            padding: 10px 30px 10px 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
+        
+        .form-group select::-ms-expand {
+            display: none;
+        }
+        
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Complaint Form</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input value="{{ps.name}}" disabled="True" type="text" id="name" name="name" required>
+            <!-- <input type="hidden" name="st" placeholder="Name" value="{{ st }}"> -->
+
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input value="{{ps.email}}" disabled="True" type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input value="{{ps.phone}}" disabled="True" type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="lawyer">Your Lawyer:</label>
+            <input value="{{lawyer.name}}" disabled="True" type="text" id="lawyer" name="lawyer" required>
+        </div>
+    
+        
+        <div class="form-group">
+            <label for="complaint">Complaint:</label>
+            <textarea id="complaint" name="complaint" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+{% endblock %}
